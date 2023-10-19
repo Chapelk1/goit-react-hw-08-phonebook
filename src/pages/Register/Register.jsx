@@ -1,6 +1,6 @@
 import {register} from 'redux/auth/operations'
 import { useDispatch } from 'react-redux';
-import { Form, Wrap, Label, Input, Btn} from './Register.styles';
+import { Form, Label, Input, Btn} from './Register.styles';
 
 
 

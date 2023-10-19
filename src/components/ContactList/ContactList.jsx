@@ -1,15 +1,15 @@
-import { List } from 'components/ContactList/ContactList.styled'
-import {Item} from 'components/ContactItem/ContactItem'
+import { List } from 'components/ContactList/ContactList.styled';
+import { Item } from 'components/ContactItem/ContactItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 import {
   getContacts,
   getFilterValue,
   getIsLoading,
   getError,
 } from 'redux/selectors';
-import { Loader } from 'components/Loaders/Loader'
+import { Loader } from 'components/Loaders/Loader';
 
 export const ContactList = () => {
   const stateOfContacts = useSelector(getContacts);
@@ -18,9 +18,9 @@ export const ContactList = () => {
   const error = useSelector(getError);
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(fetchContacts());
-  },[dispatch])
+  }, [dispatch]);
 
   const getVisibleContact = () => {
     const normalizedFilter = filtersValue.toLowerCase();
@@ -44,9 +44,4 @@ export const ContactList = () => {
       {isLoading && <Loader />}
     </>
   );
-}
-
-
-
-
-
+};

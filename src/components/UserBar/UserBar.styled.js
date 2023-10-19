@@ -23,7 +23,7 @@ export const Btn = styled.button`
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 0);
-
+  font-family: inherit;
   &:hover,
   :focus {
     background-color: teal;

@@ -6,23 +6,23 @@ import {
   Btn,
 } from 'components/ContactForm/ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { getContacts , getIsLoading } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { getContacts, getIsLoading } from 'redux/selectors';
 
-export function ContactForm({onToggle}) {
+export function ContactForm({ onToggle }) {
   const allContacts = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
+
   const addToContact = e => {
     e.preventDefault();
-    const {name, number} = e.target.elements
+    const { name, number } = e.target.elements;
 
     const contactExists = allContacts.some(
       contact => contact.name === name.value
     );
     if (contactExists) {
-      return alert(`${name.value} is already in contacts.`)
+      return alert(`${name.value} is already in contacts.`);
     }
     const contact = {
       name: name.value,
@@ -30,7 +30,7 @@ export function ContactForm({onToggle}) {
     };
 
     dispatch(addContact(contact));
-    e.currentTarget.reset()
+    e.currentTarget.reset();
     onToggle();
   };
 
@@ -58,9 +58,7 @@ export function ContactForm({onToggle}) {
           />
         </Label>
       </Wrap>
-      <Btn type="submit">
-        {isLoading ? 'Loading...' : 'Add contact'}
-      </Btn>
+      <Btn type="submit">{isLoading ? 'Loading...' : 'Add contact'}</Btn>
     </Form>
   );
 }
@@ -120,4 +118,3 @@ export function ContactForm({onToggle}) {
 //     );
 //   }
 // }
-
