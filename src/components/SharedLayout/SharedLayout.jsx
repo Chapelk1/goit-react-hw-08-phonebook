@@ -1,25 +1,27 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { AuthNav } from 'components/authNav/AuthNavigated';
+import { UserBar } from 'components/UserBar/UserBar';
 import {
   Container,
   Header,
-  Link,
-  Paragraf,
 } from 'components/SharedLayout/SharedLayout.styled';
-import { AuthNav } from 'components/authNav/AuthNavigated';
+import { Navigation } from 'components/Navigation/Navigation'; 
+import { useSelector } from 'react-redux';
 
-export default function SharedLayout() {
+export function SharedLayout() {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   return (
     <>
       <Container>
         <Header>
-          <Link to="/contacts">Contacts</Link>
-          <AuthNav/>
+          <Navigation />
+          {!isLoggedIn ? <AuthNav /> : <UserBar />}
         </Header>
 
-        {/* <Suspense fallback={<Paragraf>Loading page...</Paragraf>}> */}
-          <Outlet />
-        {/* </Suspense> */}
+        <Suspense fallback={null}>
+        <Outlet />
+        </Suspense>
       </Container>
     </>
   );

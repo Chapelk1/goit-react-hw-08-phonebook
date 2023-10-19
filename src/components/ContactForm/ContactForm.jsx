@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getContacts , getIsLoading } from 'redux/selectors';
 
-export function ContactForm() {
+export function ContactForm({onToggle}) {
   const allContacts = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
   const dispatch = useDispatch()
@@ -31,6 +31,7 @@ export function ContactForm() {
 
     dispatch(addContact(contact));
     e.currentTarget.reset()
+    onToggle();
   };
 
   return (

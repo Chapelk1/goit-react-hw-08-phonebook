@@ -1,22 +1,15 @@
 import styled from '@emotion/styled';
 
-export const Section = styled.section`
-  position: relative;
-  width: 600px;
-  margin: 0 auto;
-  padding-bottom: 80px;
+export const UserNav = styled.div`
+  display: flex;
+  align-items: center;
 `;
-export const Title = styled.h1`
-  text-align: center;
+export const Text = styled.p`
+  text-decoration: none;
   color: white;
+  font-weight: 500;
+  margin-right: 20px;
 `;
-
-export const SecondTitle = styled.h2`
-  text-align: center;
-  color: white;
-  margin-bottom: 20px;
-`;
-
 
 export const Btn = styled.button`
   padding: 8px 16px;
@@ -37,8 +30,7 @@ export const Btn = styled.button`
   }
 `;
 
-export const Wrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-`;
+
+
+
+

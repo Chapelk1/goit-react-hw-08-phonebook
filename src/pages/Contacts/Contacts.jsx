@@ -1,16 +1,41 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import { Section, Title, SecondTitle } from 'pages/Contacts/Contacts.styled'
+import {
+  Section,
+  Title,
+  SecondTitle,
+  Btn,
+  Wrap,
+} from 'pages/Contacts/Contacts.styled';
+import { Modal } from 'components/Modal/Modal';
+import { useState } from 'react';
 
-export function Contacts() {
+
+export default function Contacts() {
+    const [showModal, setShowModal] = useState(false); 
+
+    const onToggleModal = () => {
+      setShowModal(prevState => !prevState);
+    };
+
   return (
     <Section>
-      <Title>Phonebook</Title>
-      <ContactForm />
+      {showModal && (
+        <Modal onToggle={onToggleModal}>
+          <Title>Adding contact</Title>
+          <ContactForm onToggle={onToggleModal} />
+        </Modal>
+      )}
 
       <SecondTitle>Contacts</SecondTitle>
-      <Filter />
+      <Wrap>
+        <Filter />
+        <Btn type="button" onClick={onToggleModal}>
+          Add contact
+        </Btn>
+      </Wrap>
+
       <ContactList />
     </Section>
   );

@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-
+import styled from '@emotion/styled';
 
 export const Form = styled.form`
   width: 100%;
@@ -45,8 +44,9 @@ export const Btn = styled.button`
   border-radius: 10px;
   font-weight: 600;
   padding: 5px;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
+  min-width: 80px;
   transition-property: background-color, color, transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 0);
@@ -57,8 +57,4 @@ export const Btn = styled.button`
     outline: none;
   }
 `;
-
-
-
-
 
